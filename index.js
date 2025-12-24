@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
 const ejs = require("ejs");
 const mongooese = require('mongoose');
+const port = 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname,"public")));
@@ -18,3 +19,10 @@ app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname , "public")));
 
 const db = require("./config/db.js");
+
+const Route = require("./routes/router.js");
+app.use("/",Route);
+
+app.listen(port,() => {
+    console.log(`spp listned at port ${port}`);
+})
