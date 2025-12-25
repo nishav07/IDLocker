@@ -4,6 +4,7 @@ const callBack = require("../controllers/user");
 
 
 router.get("/",callBack.index);
+router.get("/auth",callBack.auth)
 
 
 module.exports = router;
