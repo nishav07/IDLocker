@@ -17,12 +17,14 @@ app.set("public");
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname , "public")));
-
+const sessionCofig = require("./config/session");
 const db = require("./config/db.js");
+app.use(sessionCofig)
 
 const Route = require("./routes/router.js");
+
 app.use("/",Route);
 
 app.listen(port,() => {
-    console.log(`spp listned at port ${port}`);
+    console.log(`app listned at port ${port}`);
 })
