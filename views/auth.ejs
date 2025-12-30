@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div id="auth-section" class="min-h-full py-6 flex items-center justify-center">
-                <div id="login-container" class="w-full px-4 hidden">
+                <div id="login-container" class="w-full px-4 ">
                     <form action="/login" method="post" class="flex flex-col items-center justify-between gap-4">
                         <input
                         type="text"
@@ -42,10 +42,10 @@
                         >
                         <button class="h-20 w-full px-4 text-xl rounded-2xl border-2 bg-sky-900 text-white">Login</button>
 
-                            <p class="font-mono text-xl">Don't have an account? <span id="signup" class="text-sky-900">Signup</span></p>
+                            <p class="font-mono text-xl">Don't have an account? <span id="signup" class="text-sky-900 cursor-pointer">Signup</span></p>
                     </form>
                 </div>
-                <div id="signup-container" class="w-full px-4 ">
+                <div id="signup-container" class="w-full px-4 hidden">
                     <form action="/signup" method="post" class="flex flex-col items-center justify-between gap-4">
                         <input
                         type="text"
@@ -69,7 +69,7 @@
                         >
                         <button class="h-20 w-full px-4 text-xl rounded-2xl border-2 bg-sky-900 text-white">Signup</button>
 
-                            <p class="font-mono text-xl">Already have an account? <span id="signup" class="text-sky-900">Login</span></p>
+                            <p class="font-mono text-xl">Already have an account? <span id="login" class="text-sky-900 cursor-pointer">Login</span></p>
                     </form>
                 </div>
             </div>
@@ -81,5 +81,7 @@
         </footer>
 
     </div>
+
+    <script src="/js/auth-ejs.js"></script>
 </body>
 </html>
