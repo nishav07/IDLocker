@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        required:[true,"email id is reuqired"]
+        required:[true,"email id is reuqired"],
+        unique: [true,"this email is already registerd"]
     }
 })
 

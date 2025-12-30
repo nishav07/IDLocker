@@ -15,11 +15,11 @@ async function signup (req,res){
         password,
         email
     })
-    const hashPass = await middlewares.hashing(password);
+    const hashPass = await middleware.hashing(password);
     
     const user = new User({ userName:userName,password:hashPass,email:email});
     await user.save();
-    res.send('ok hai boss')
+    res.send('sinuppp ho gyaa sir');
    } catch (error) {
     console.log(error);
    }

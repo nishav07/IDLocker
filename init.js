@@ -6,22 +6,18 @@ const db = require("./config/db");
 
 const user = [
    {
-    userName:"Nishav",
+    userName:"Nishavvv",
     password:"1234567",
-    email:"nishavvvv7@gmail.com"
+    email:"nishavvvvv7@gmail.com"
    },{
     userName:"Rishav",
     password:"Rishav2015$",
     email:"rishavvvv7@gmail.com"
-   },{
-    userName:"daksh",
-    password:"qwerty123",
-    email:"ddkkksshh7@gmail.com"
-   },{
-    userName:"raman",
-    password:"poiuyt124",
-    email:"rrrman7@gmail.com"
-   },
+   }
 ]
 
-User.insertMany(user);
+async function userr() {
+   await User.insertMany(user)
+}
+
+userr();
