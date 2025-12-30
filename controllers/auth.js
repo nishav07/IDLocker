@@ -32,18 +32,23 @@ async function login (req,res){
         password
     })
 
+     const users = await User.find({email:email});
 
-    const users = await User.find({email:email});
-     console.log("login wala data",users);
+     if(users.length == 0){
+        return res.send("user not found")
+     }
+
+   
+    console.log("login wala data",users);
     const hashPass = users[0].password;
     const isTrue = await middleware.verify(password,hashPass);
 
-
+    console.log(`data of pass`,hashPass,isTrue,)
 
     if(users[0] && isTrue){
         return res.send("logged innnnnnn")
     } else {
-        return res.send("okayyyyy hai bossssssssssss")
+        return res.send("password wrong h")
     }
 
     
