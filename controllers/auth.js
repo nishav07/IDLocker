@@ -9,7 +9,7 @@ function auth (req,res){
 
 async function signup (req,res){
    try {
-     const {userName,password,email} = req.body;
+    const {userName,password,email} = req.body;
     console.log("signup wala data:",{
         userName,
         password,
@@ -25,14 +25,28 @@ async function signup (req,res){
    }
 }
 
-function login (req,res){
-    const {userName,password} = req.body;
+async function login (req,res){
+    const {email,password} = req.body;
     console.log("login wala data:",{
-        userName,
+        email,
         password
     })
 
-    res.send("okayyyyy hai bossssssssssss")
+
+    const users = await User.find({email:email});
+     console.log("login wala data",users);
+    const hashPass = users[0].password;
+    const isTrue = await middleware.verify(password,hashPass);
+
+
+
+    if(users[0] && isTrue){
+        return res.send("logged innnnnnn")
+    } else {
+        return res.send("okayyyyy hai bossssssssssss")
+    }
+
+    
 }
 
 module.exports = {
