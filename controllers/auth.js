@@ -11,16 +11,29 @@ function auth (req,res){
 async function signup (req,res){
    try {
     const {userName,password,email} = req.body;
+
     console.log("signup wala data:",{
         userName,
         password,
         email
     })
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+    return res.redirect("/signup");
+    }
+
     const hashPass = await middleware.hashing(password);
     
     const user = new User({ userName:userName,password:hashPass,email:email});
     await user.save();
-    res.send('sinuppp ho gyaa sir');
+
+
+    req.session.user = {
+        id:user.id
+    }
+
+    res.redirect('/dashboard');
    } catch (error) {
     console.log(error);
    }
@@ -33,20 +46,23 @@ async function login (req,res){
         password
     })
 
-     const users = await User.find({email:email});
+     const users = await User.findOne({email:email});
 
-     if(users.length == 0){
+     if(!users){
         return res.send("user not found");
      }
 
    
     console.log("login wala data",users);
-    const hashPass = users[0].password;
+    const hashPass = users.password;
     const isTrue = await middleware.verify(password,hashPass);
 
     console.log(`data of pass`,hashPass,isTrue,);
 
-    if(users[0] && isTrue){
+    if(users && isTrue){
+        req.session.user = {
+        id:users.id
+        }
         return res.redirect("/dashboard");
     } else {
         return res.send("password wrong h")

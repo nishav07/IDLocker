@@ -28,10 +28,18 @@ function isLoggedIn(req,res,next){
     }
 }
 
+async function user(req,res,next){
+    if (req.session.user) {
+    req.user = await User.findById(req.session.user.id);
+  }
+  next();
+}
+
 
 module.exports = {
     flash,
     hashing,
     verify,
-    isLoggedIn
+    isLoggedIn,
+    user
 }

@@ -20,8 +20,9 @@ app.use(express.static(path.join(__dirname , "public")));
 const sessionConfig = require("./config/session");
 const db = require("./config/db.js");
 app.use(sessionConfig);
-
+const middleware = require("./middlewares/auth.js")
 const Route = require("./routes/router.js");
+app.use(middleware.user);
 
 app.use("/",Route);
 
