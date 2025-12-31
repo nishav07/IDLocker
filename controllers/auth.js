@@ -4,7 +4,7 @@ const User = require("../models/user.js");
 const docs = require("../models/document.js");
 
 function auth (req,res){
-    res.render("auth.ejs")
+    res.render("auth.ejs");
 }
 
 async function signup (req,res){
@@ -35,7 +35,7 @@ async function login (req,res){
      const users = await User.find({email:email});
 
      if(users.length == 0){
-        return res.send("user not found")
+        return res.send("user not found");
      }
 
    
@@ -43,10 +43,10 @@ async function login (req,res){
     const hashPass = users[0].password;
     const isTrue = await middleware.verify(password,hashPass);
 
-    console.log(`data of pass`,hashPass,isTrue,)
+    console.log(`data of pass`,hashPass,isTrue,);
 
     if(users[0] && isTrue){
-        return res.send("logged innnnnnn")
+        return res.redirect("/dashboard");
     } else {
         return res.send("password wrong h")
     }
@@ -54,8 +54,10 @@ async function login (req,res){
     
 }
 
+
+
 module.exports = {
     auth,
     signup,
-    login
+    login,
 }
