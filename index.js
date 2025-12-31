@@ -17,9 +17,9 @@ app.set("public");
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname , "public")));
-const sessionCofig = require("./config/session");
+const sessionConfig = require("./config/session");
 const db = require("./config/db.js");
-app.use(sessionCofig)
+app.use(sessionConfig);
 
 const Route = require("./routes/router.js");
 

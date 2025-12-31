@@ -3,6 +3,7 @@ const middleware = require("../middlewares/auth.js");
 const User = require("../models/user.js");
 const docs = require("../models/document.js");
 
+
 function auth (req,res){
     res.render("auth.ejs");
 }
