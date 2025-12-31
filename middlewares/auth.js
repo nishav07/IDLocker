@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const User = require("../models/user.js");
 
 function flash(req,res,next){
     res.locals.success = req.flash("success");
@@ -23,7 +24,7 @@ function isLoggedIn(req,res,next){
     if(req.session && req.session.user){
         next()
     } else {
-        req.flash("error","Login first")
+        // req.flash("error","Login first")
         res.redirect("/")
     }
 }

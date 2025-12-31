@@ -30,7 +30,7 @@ async function signup (req,res){
 
 
     req.session.user = {
-        id:user.id
+        id:user._id
     }
 
     res.redirect('/dashboard');
@@ -61,7 +61,7 @@ async function login (req,res){
 
     if(users && isTrue){
         req.session.user = {
-        id:users.id
+        id:users._id
         }
         return res.redirect("/dashboard");
     } else {
