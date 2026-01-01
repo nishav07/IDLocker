@@ -24,7 +24,7 @@ function isLoggedIn(req,res,next){
     if(req.session && req.session.user){
         next()
     } else {
-        req.flash("error","Login first")
+        // req.flash("error","Login first")
         res.redirect("/")
     }
 }

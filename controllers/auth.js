@@ -49,8 +49,9 @@ async function login (req,res){
      const users = await User.findOne({email:email});
 
      if(!users){
-        req.flash("error","404 user not found")
-    res.redirect("/");
+        req.flash("error","user not found")
+        res.redirect("/");
+        return
      }
 
    
@@ -64,9 +65,13 @@ async function login (req,res){
         req.session.user = {
         id:users._id
         }
-        return res.redirect("/dashboard");
+        req.flash("success","loggged in")
+       res.redirect("/dashboard");
+       return
     } else {
-        return res.send("password wrong h")
+         req.flash("error","passowrd worng haii")
+       res.redirect("/");
+       return
     }
 
     
