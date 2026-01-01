@@ -11,6 +11,7 @@ router.get("/auth",callBack2.auth)
 router.post("/signup",callBack2.signup);
 router.post("/login",callBack2.login);
 router.get("/dashboard",isLoggedIn,callBack.dashboard);
+router.get("/components/:page",isLoggedIn,callBack.components)
 
 
 module.exports = router;

@@ -10,7 +10,13 @@ function dashboard(req,res){
     res.render("dashboard.ejs")
 }
 
+function components(req,res){
+    const page = req.params.page;
+    res.render(`components/${page}`)
+}
+
 module.exports = {
     index,
-    dashboard
+    dashboard,
+    components
 }

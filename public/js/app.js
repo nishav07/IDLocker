@@ -8,9 +8,9 @@ document.querySelectorAll("a[data-page]").forEach(link => {
 
 
 
-document.addEventListener("DOMContentLoaded" , () => {
-  loadPage("feed");
-});
+// document.addEventListener("DOMContentLoaded" , () => {
+//   loadPage("feed");
+// });
 
 
 function loadPage(page) {
@@ -18,6 +18,6 @@ function loadPage(page) {
     .then(res => res.text())
     .then(html => {
       document.getElementById("content").innerHTML = html;
-      initPage(page);
+    //   initPage(page);
     });
 }
