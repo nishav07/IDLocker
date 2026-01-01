@@ -49,7 +49,8 @@ async function login (req,res){
      const users = await User.findOne({email:email});
 
      if(!users){
-        return res.send("user not found");
+        req.flash("error","404 user not found")
+    res.redirect("/");
      }
 
    

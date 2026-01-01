@@ -13,16 +13,20 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({ extended: true }));
 
-app.set("public");
+// app.set("public");
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
-app.use(express.static(path.join(__dirname , "public")));
+// app.use(express.static(path.join(__dirname , "public")));
+
 const sessionConfig = require("./config/session");
 const db = require("./config/db.js");
 app.use(sessionConfig);
+app.use(flash());
+
 const middleware = require("./middlewares/auth.js")
 const Route = require("./routes/router.js");
 app.use(middleware.user);
+app.use(middleware.flash);
 
 app.use("/",Route);
 
