@@ -11,7 +11,7 @@
     <div id="page-wrapper">
 
        <header id="nav-section" class="bg-sky-900">
-            <div id="nav-container" class="flex px-6 items-center justify-between md:px-30 py-2 md:py-4">
+            <div id="nav-container" class="flex px-6 items-center justify-between md:px-20 lg:px-30 py-2 md:py-4">
                 <div id="logo" class="text-white text-2xl"><span class="text-sky-500">ID</span>Locker</div>
                 <nav id="profile" class="h-10 w-10 text-2xl text-emerald-400 rounded-full bg-emerald-200 flex items-center justify-center">
                     <a href="" data-page="profile" class=""><i class="fa-solid fa-user"></i></a>
@@ -19,11 +19,24 @@
             </div>
         </header>
 
-        <main id="content">
-            
-        </main>
+        <div id="main" class=" md:flex md:px-10 lg:px-15">
 
-        <footer id="bottom-nav-section" class="fixed bottom-0 left-0 w-full h-25 bg-sky-300">
+            <div id="side-nav-section" class="hidden md:block md:flex-2 md:min-h-166 md:bg-sky-300 md:py-6">
+                <div id="side-nav-container" class="hidden md:block px-4">
+                    
+                    <div class="h-10 py-4 w-full border-2 border-teal-500 rounded-2xl text-2xl flex">
+                        <a href=""><i class="fa-solid fa-house"></i></a>
+                        <p class="text-xl">Home</p>
+                    </div>
+                </div>
+            </div>
+            
+            <main id="content" class="md:flex-6 md:min-h-166 md:bg-emerald-700">
+            
+            </main>
+        </div>
+
+        <footer id="bottom-nav-section" class="fixed bottom-0 left-0 w-full h-25 bg-sky-300 md:hidden">
             <div id="bottom-nav-container" class="h-full px-10 py-2 flex items-center justify-between">
 
                 <div class="text-4xl text-gray-800 flex flex-col items-center justify-center gap-1">
