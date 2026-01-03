@@ -65,7 +65,7 @@ async function login (req,res){
         req.session.user = {
         id:users._id
         }
-        req.flash("success","loggged in")
+       req.flash("success","loggged in")
        res.redirect("/dashboard");
        return
     } else {

@@ -9,8 +9,10 @@
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-emerald-50: oklch(97.9% 0.021 166.113);
+    --color-emerald-100: oklch(95% 0.052 163.051);
     --color-emerald-200: oklch(90.5% 0.093 164.15);
     --color-emerald-400: oklch(76.5% 0.177 163.223);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
     --color-emerald-700: oklch(50.8% 0.118 165.612);
     --color-teal-300: oklch(85.5% 0.138 181.071);
     --color-teal-500: oklch(70.4% 0.14 182.503);
@@ -205,17 +207,80 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
   .fixed {
     position: fixed;
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
+  .top-6 {
+    top: calc(var(--spacing) * 6);
+  }
+  .top-8 {
+    top: calc(var(--spacing) * 8);
+  }
+  .top-12 {
+    top: calc(var(--spacing) * 12);
+  }
+  .top-14 {
+    top: calc(var(--spacing) * 14);
+  }
+  .top-16 {
+    top: calc(var(--spacing) * 16);
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .right-2 {
+    right: calc(var(--spacing) * 2);
+  }
   .right-6 {
     right: calc(var(--spacing) * 6);
+  }
+  .right-8 {
+    right: calc(var(--spacing) * 8);
+  }
+  .right-10 {
+    right: calc(var(--spacing) * 10);
+  }
+  .right-12 {
+    right: calc(var(--spacing) * 12);
+  }
+  .right-20 {
+    right: calc(var(--spacing) * 20);
+  }
+  .right-30 {
+    right: calc(var(--spacing) * 30);
+  }
+  .right-40 {
+    right: calc(var(--spacing) * 40);
+  }
+  .right-45 {
+    right: calc(var(--spacing) * 45);
   }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
   .bottom-6 {
     bottom: calc(var(--spacing) * 6);
+  }
+  .bottom-12 {
+    bottom: calc(var(--spacing) * 12);
+  }
+  .bottom-20 {
+    bottom: calc(var(--spacing) * 20);
+  }
+  .bottom-25 {
+    bottom: calc(var(--spacing) * 25);
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
@@ -298,6 +363,9 @@
   .w-13 {
     width: calc(var(--spacing) * 13);
   }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
   .w-25 {
     width: calc(var(--spacing) * 25);
   }
@@ -344,9 +412,6 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
-  }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
@@ -382,6 +447,9 @@
   }
   .bg-emerald-50 {
     background-color: var(--color-emerald-50);
+  }
+  .bg-emerald-100 {
+    background-color: var(--color-emerald-100);
   }
   .bg-emerald-200 {
     background-color: var(--color-emerald-200);
@@ -500,6 +568,9 @@
   .text-emerald-400 {
     color: var(--color-emerald-400);
   }
+  .text-emerald-500 {
+    color: var(--color-emerald-500);
+  }
   .text-gray-800 {
     color: var(--color-gray-800);
   }
@@ -548,6 +619,21 @@
   .ease-out {
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
+  }
+  .md\:top-2 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 2);
+    }
+  }
+  .md\:top-4 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 4);
+    }
+  }
+  .md\:right-45 {
+    @media (width >= 48rem) {
+      right: calc(var(--spacing) * 45);
+    }
   }
   .md\:-mt-20 {
     @media (width >= 48rem) {
@@ -654,38 +740,10 @@
       gap: calc(var(--spacing) * 10);
     }
   }
-  .md\:border {
-    @media (width >= 48rem) {
-      border-style: var(--tw-border-style);
-      border-width: 1px;
-    }
-  }
   .md\:border-r-2 {
     @media (width >= 48rem) {
       border-right-style: var(--tw-border-style);
       border-right-width: 2px;
-    }
-  }
-  .md\:border-l {
-    @media (width >= 48rem) {
-      border-left-style: var(--tw-border-style);
-      border-left-width: 1px;
-    }
-  }
-  .md\:border-l-2 {
-    @media (width >= 48rem) {
-      border-left-style: var(--tw-border-style);
-      border-left-width: 2px;
-    }
-  }
-  .md\:bg-emerald-700 {
-    @media (width >= 48rem) {
-      background-color: var(--color-emerald-700);
-    }
-  }
-  .md\:bg-sky-300 {
-    @media (width >= 48rem) {
-      background-color: var(--color-sky-300);
     }
   }
   .md\:p-16 {

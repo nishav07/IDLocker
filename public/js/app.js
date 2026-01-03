@@ -8,9 +8,9 @@ document.querySelectorAll("a[data-page]").forEach(link => {
 
 
 
-// document.addEventListener("DOMContentLoaded" , () => {
-//   loadPage("feed");
-// });
+document.addEventListener("DOMContentLoaded" , () => {
+  loadPage("docs");
+});
 
 
 function loadPage(page) {
@@ -21,3 +21,31 @@ function loadPage(page) {
     //   initPage(page);
     });
 }
+
+const profileBtn = document.getElementById("profile");
+const logoutBtn = document.getElementById("logout-section");
+
+profileBtn.addEventListener("click", () => {
+  logoutBtn.classList.toggle("hidden");
+})
+
+
+
+function flash(){
+  
+  const flash = document.getElementById("flash");
+
+  if (flash) {
+    setTimeout(() => {
+      flash.classList.remove("opacity-0", "translate-y-6");
+    }, 50);
+
+
+    setTimeout(() => {
+      flash.classList.add("opacity-0", "translate-y-6");
+    }, 3000);
+  }
+
+}
+
+flash();
