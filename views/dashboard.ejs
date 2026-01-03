@@ -19,19 +19,30 @@
             </div>
         </header>
 
-        <div id="main" class=" md:flex md:px-10 lg:px-15 md:bg-emerald-200 md:flex md:gap-2">
+        <div id="main" class=" md:flex md:px-10 lg:px-15 md:bg-emeald-200 md:flex md:gap-10">
 
-            <div id="side-nav-section" class="hidden md:block md:flex-2 md:min-h-166 md:bg-sky-300 md:py-6">
-                <div id="side-nav-container" class="hidden md:block px-4">
+            <div id="side-nav-section" class="hidden md:block md:flex-2 md:min-h-166 md:border-r-2 border-teal-500 md:py-8">
+                <div id="side-nav-container" class="hidden md:block md:px-4 md:flex md:flex-col md:gap-10 ">
                     
                     <div class="py-4 px-4  w-full border-2 border-teal-500 rounded-2xl text-4xl flex items-center">
-                        <a href="" class=" flex items-center justify-center"><i class="fa-solid fa-house"></i></a>
+                        <a href="" data-page="docs" class=" flex items-center justify-center"><i class="fa-solid fa-house"></i></a>
                         <p class="text-3xl font-mono px-2 cursor-pointer">Home</p>
                     </div>
+
+                    <div class="py-4 px-4  w-full border-2 border-teal-500 rounded-2xl text-4xl flex items-center">
+                        <a href="" data-page="create" class=" flex items-center justify-center"><i class="fa-solid fa-plus"></i></a>
+                        <p class="text-3xl font-mono px-2 cursor-pointer">Add New</p>
+                    </div>
+
+                    <div class="py-4 px-4  w-full border-2 border-teal-500 rounded-2xl text-4xl flex items-center">
+                        <a href="" data-page="profile" class=" flex items-center justify-center"><i class="fa-solid fa-house-user"></i></a>
+                        <p class="text-3xl font-mono px-2 cursor-pointer">Profile</p>
+                    </div>
+
                 </div>
             </div>
             
-            <main id="content" class="md:flex-6 md:min-h-166 md:bg-emerald-700">
+            <main id="content" class="md:flex-6 md:min-h-166">
             
             </main>
         </div>
