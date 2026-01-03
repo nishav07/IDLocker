@@ -746,6 +746,16 @@
       border-right-width: 2px;
     }
   }
+  .md\:bg-emerald-200 {
+    @media (width >= 48rem) {
+      background-color: var(--color-emerald-200);
+    }
+  }
+  .md\:bg-sky-300 {
+    @media (width >= 48rem) {
+      background-color: var(--color-sky-300);
+    }
+  }
   .md\:p-16 {
     @media (width >= 48rem) {
       padding: calc(var(--spacing) * 16);

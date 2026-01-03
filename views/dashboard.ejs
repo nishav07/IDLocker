@@ -90,14 +90,13 @@
   </div>
 <% } %>
 
-
     </div>
 
-    <div id="logout-section" class=" hidden py-4 bg-sky-900 absolute top-16 right-6 md:top-4 md:right-45 rounded-2xl">
-        <form id="logout-container" class="">
+    <div id="logout-section" class=" hidden py-4 bg-sky-900 md:bg-emerald-200 absolute top-16 right-6 md:top-4 md:right-45 rounded-2xl">
+        <form action="/logout" method="post" id="logout-container" class="">
             <button class="flex items-center justify-center gap-2 px-4">
                 <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer text-2xl text-emerald-500"></i>
-                 <p class="text-sm cursor-pointer text-emerald-500">Logout</p>
+                 <p class="text-sm cursor-pointer text-emerald-500 md:bg-emeald-200">Logout</p>
             </button>
         </form>
     </div>
