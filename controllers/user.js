@@ -39,7 +39,7 @@ async function create(req,res){
         userId: userID,   // assume user logged in
         docsID: docsID,
         name: name,
-        imgPath:document
+        imgPath:result.secure_url
       });
 
       res.json({
@@ -52,6 +52,8 @@ async function create(req,res){
       console.log(err);
       res.status(500).json({ success: false });
     }
+
+    res.send("okay hai jeeeeee")
 
    
 }
