@@ -14,7 +14,7 @@ router.post("/login",callBack2.login);
 router.get("/dashboard",isLoggedIn,callBack.dashboard);
 router.get("/components/:page",isLoggedIn,callBack.components);
 router.post("/logout",isLoggedIn,callBack2.logout);
-router.post("/upload",isLoggedIn,upload.single("image"),callBack.create);
+router.post("/upload",isLoggedIn,upload.single("document"),callBack.create);
 
 
 module.exports = router;

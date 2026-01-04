@@ -16,7 +16,8 @@ const docsSchema = new mongoose.Schema({
     imgPath:{
         type:String,
         required:[true,"email id is reuqired"]
-    }
+    },
+    publicId:{type:String}
 })
 
 const Docs = mongoose.model("Doc",docsSchema);
