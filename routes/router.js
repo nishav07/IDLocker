@@ -15,6 +15,7 @@ router.get("/dashboard",isLoggedIn,callBack.dashboard);
 router.get("/components/:page",isLoggedIn,callBack.components);
 router.post("/logout",isLoggedIn,callBack2.logout);
 router.post("/upload",isLoggedIn,upload.single("document"),callBack.create);
+router.delete("/delete",isLoggedIn,callBack.drop);
 
 
 module.exports = router;

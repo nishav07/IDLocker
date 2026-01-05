@@ -75,11 +75,24 @@ function copybtn (e) {
       });
 }
 
-function delbtn (e) {
+async function delbtn (e) {
   const btn = e.target.closest("[delete-btn]");
     if (!btn) return;
     console.log("delete-btn-clicked")
    const postID = btn.dataset.id;
-   const Id = btn.dataset.publicId;
-   console.log(postID,Id);
+   const publicId = btn.dataset.publicId;
+
+   console.log(postID,publicId);
+
+  try {
+     await fetch("/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ postID })
+    });
+
+    // window.location.href = "";
+  } catch (error) {
+    console.log("error aa gya yaar",error);
+  }
 }

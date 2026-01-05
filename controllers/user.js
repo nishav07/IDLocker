@@ -4,6 +4,7 @@ const docs = require("../models/document.js")
 const upload = require("../config/multer.js");
 const cloudinary = require("../config/cloudinary.js");
 const fs = require("fs");
+const Docs = require('../models/document.js');
 
 function index (req,res){
     res.render("index.ejs")
@@ -17,7 +18,7 @@ async function components(req,res){
     const page = req.params.page;
     const userID = req.session.user.id;
     const doc = await docs.find({userID:userID});
-    console.log(doc);
+    // console.log(doc);
     res.render(`components/${page}`,{data:doc})
 }
 
@@ -25,11 +26,11 @@ async function create(req,res){
 
     const {name,docsID} = req.body;
     const userID = req.session.user.id;
-    console.log("docs ka data", {
-        name,
-        docsID,
-        userID
-    })
+    // console.log("docs ka data", {
+    //     name,
+    //     docsID,
+    //     userID
+    // })
 
      try {
       // cloudinary upload
@@ -63,9 +64,47 @@ async function create(req,res){
    
 }
 
+async function drop(req,res){
+try {
+
+    const {postID} = req.body;
+
+    
+
+ const doc = await Docs.findById(postID);
+
+ const publicId = doc.publicId;
+
+ console.log("wtffffff",postID,publicId);
+
+res.send("okkkkkkkkkk")
+
+
+if (!doc) {
+  return res.sendStatus(403);
+}
+
+// const publicId = doc.publicId;
+
+// console.log("backend waal data", {postID,publicId})
+
+
+//   // await cloudinary.uploader.destroy(publicId);
+//   // await Docs.findByIdAndDelete(postID);
+
+  
+  
+} catch (error) {
+  res.sendStatus(400)
+}
+
+
+}
+
 module.exports = {
     index,
     dashboard,
     components,
-    create
+    create,
+    drop
 }
