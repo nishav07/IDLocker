@@ -1,3 +1,9 @@
+document.addEventListener("click", (e) => {
+  if (e.target.closest("i[copyBtn]")) copybtn(e);
+});
+
+
+
 document.querySelectorAll("a[data-page]").forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -49,3 +55,9 @@ function flash(){
 }
 
 flash();
+
+function copybtn (e) {
+   const btn = e.target.closest("[data-like-btn]");
+    if (!btn) return;
+    console.log("copy btn clikedddddd")
+}
