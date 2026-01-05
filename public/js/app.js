@@ -1,5 +1,7 @@
 document.addEventListener("click", (e) => {
   if (e.target.closest("i[copyBtn]")) copybtn(e);
+
+  if(e.target.closest("[delete-btn]")) delbtn(e);
 });
 
 
@@ -71,4 +73,13 @@ function copybtn (e) {
       .catch(err => {
         console.error("Failed to copy text: ", err);
       });
+}
+
+function delbtn (e) {
+  const btn = e.target.closest("[delete-btn]");
+    if (!btn) return;
+    console.log("delete-btn-clicked")
+   const postID = btn.dataset.id;
+   const Id = btn.dataset.publicId;
+   console.log(postID,Id);
 }

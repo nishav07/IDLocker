@@ -4,7 +4,7 @@
     
     <% for(let doc of data) { %>
             <div class="bg-white rounded-xl shadow-md p-4 flex flex-col items-center border-2 border-gray-400 relative">
-              <button class="text-3xl text-teal-600 absolute top-0 left-0"><i class="fa-solid fa-trash"></i></button>
+              <button class="text-3xl text-teal-600 absolute top-0 left-0" data-public-Id="<%= doc.publicId %>"  data-id="<%= doc._id %>"  delete-btn><i class="fa-solid fa-trash"></i></button>
 
         <img src="<%= doc.imgPath %>" alt="" class="p-4 object-cover rounded-lg mb-4">
        
