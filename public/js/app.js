@@ -57,7 +57,18 @@ function flash(){
 flash();
 
 function copybtn (e) {
-   const btn = e.target.closest("[data-like-btn]");
+   const btn = e.target.closest("i[copyBtn]");
     if (!btn) return;
-    console.log("copy btn clikedddddd")
+    console.log("copy btn clikedddddd");
+    const p = btn.closest("p");
+    const docID = p.querySelector('[document-id]').innerText;
+    console.log(docID);
+
+     navigator.clipboard.writeText(docID)
+      .then(() => {
+        alert("Text copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
 }
