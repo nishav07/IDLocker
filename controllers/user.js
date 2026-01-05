@@ -69,7 +69,6 @@ try {
 
     const {postID} = req.body;
 
-    
 
  const doc = await Docs.findById(postID);
 
@@ -77,23 +76,16 @@ try {
 
  console.log("wtffffff",postID,publicId);
 
-res.send("okkkkkkkkkk")
-
-
 if (!doc) {
   return res.sendStatus(403);
 }
 
-// const publicId = doc.publicId;
 
-// console.log("backend waal data", {postID,publicId})
+  await cloudinary.uploader.destroy(publicId);
+  await Docs.findByIdAndDelete(postID);
 
-
-//   // await cloudinary.uploader.destroy(publicId);
-//   // await Docs.findByIdAndDelete(postID);
-
-  
-  
+  console.log("yaha tak kak pipeline clearrr")
+  res.sendStatus(200)
 } catch (error) {
   res.sendStatus(400)
 }

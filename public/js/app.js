@@ -68,7 +68,7 @@ function copybtn (e) {
 
      navigator.clipboard.writeText(docID)
       .then(() => {
-        alert("Text copied to clipboard!");
+        showToast("text copied :)")
       })
       .catch(err => {
         console.error("Failed to copy text: ", err);
@@ -83,16 +83,61 @@ async function delbtn (e) {
    const publicId = btn.dataset.publicId;
 
    console.log(postID,publicId);
+   showLoader();
+
 
   try {
-     await fetch("/delete", {
+    const res =  await fetch("/delete", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ postID })
     });
 
-    // window.location.href = "";
+    if(res.status === 200)
+      hideLoader();
+     showToast("Document deleted","success",1000);
+     setTimeout(() => {
+      window.location.href = "Dashboard";
+     },1000);
   } catch (error) {
     console.log("error aa gya yaar",error);
   }
 }
+
+function showToast(message, type = "success", time = 2500) {
+    const toast = document.getElementById("toast");
+    const msg = document.getElementById("toast-msg");
+
+    msg.innerText = message;
+
+    toast.className = toast.className.replace(/bg-\S+/g, "");
+    toast.classList.add(type === "success" ? "bg-green-600" : "bg-red-600");
+
+    toast.classList.remove("hidden");
+    toast.classList.add("opacity-0", "-translate-y-1/3");
+
+    toast.offsetHeight;
+
+    toast.classList.remove("opacity-0", "-translate-y-1/3");
+    toast.classList.add("opacity-100", "-translate-y-1/2");
+
+    setTimeout(() => {
+      toast.classList.remove("opacity-100");
+      toast.classList.add("opacity-0", "-translate-y-20");
+
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 500);
+    }, time);
+  }
+
+   function showLoader() {
+    const loader = document.getElementById("loader");
+    loader.classList.remove("hidden");
+    loader.classList.add("opacity-100");
+  }
+
+  function hideLoader() {
+    const loader = document.getElementById("loader");
+    loader.classList.add("hidden");
+  }
