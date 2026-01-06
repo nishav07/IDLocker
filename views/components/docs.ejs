@@ -1,6 +1,8 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 overflow-auto ">
-  
-    <!-- <p class="text-center text-gray-500 col-span-full">No documents uploaded yet</p> -->
+   
+    <% if (data.length == 0) { %>
+     <p class="text-center text-2xl text-gray-500 col-span-full">No documents uploaded yet</p>
+    <% } %>
     
     <% for(let doc of data) { %>
             <div class="bg-white rounded-xl shadow-md p-4 flex flex-col items-center border-2 border-gray-400 relative">

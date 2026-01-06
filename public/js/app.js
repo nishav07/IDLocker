@@ -2,6 +2,8 @@ document.addEventListener("click", (e) => {
   if (e.target.closest("i[copyBtn]")) copybtn(e);
 
   if(e.target.closest("[delete-btn]")) delbtn(e);
+
+  if(e.target.closest(`[data-page="create"]`)) createFx(e);
 });
 
 
@@ -150,3 +152,34 @@ function showToast(message, type = "success", time = 2500) {
     const loader = document.getElementById("loader");
     loader.classList.add("hidden");
   }
+
+
+
+ const navItems = document.querySelectorAll(".nav-item");
+
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+
+
+    navItems.forEach(i => {
+      i.classList.remove(
+        "text-teal-400",
+        "scale-110",
+        "-translate-y-1"
+      );
+    });
+
+    item.classList.add(
+      "text-teal-400",
+      "scale-110",
+      "-translate-y-1"
+    );
+  });
+});
+
+
+function createFx(e) {
+  const btn = e.target.closest(`[data-page="create"]`);
+   if (!btn) return;
+   console.log('delete btn clickedddddddddddd');
+}
