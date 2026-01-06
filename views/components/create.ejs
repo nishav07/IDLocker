@@ -16,7 +16,7 @@
 
                             <div>
 
-                            <input 
+                            <!-- <input 
                             type="file" 
                             id="image"
                             name="document"
@@ -48,9 +48,52 @@
 
                             </label>
 
+ -->
 
 
-                            
+ <input 
+  type="file" 
+  id="image"
+  name="document"
+  accept="image/*"
+  class="hidden"
+/>
+
+<label 
+  for="image"
+  id="uploadBox"
+  class="mt-2 flex flex-col items-center justify-center
+         h-80 md:h-80 w-full cursor-pointer
+         rounded-2xl border-2 border-dashed border-gray-400
+         bg-gray-50 hover:bg-gray-100
+         transition-all relative"
+>
+
+  <div id="loader" class="hidden absolute flex items-center justify-center">
+    <div class="h-8 w-8 border-4 border-teal-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+
+  
+  <div id="placeholder" class="flex flex-col items-center">
+    <svg class="w-10 h-10 text-gray-500 mb-2" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24">
+      <path d="M7 16V12M12 16V8M17 16V4M4 20h16"/>
+    </svg>
+
+    <p class="text-sm text-gray-600 font-medium">
+      Click to upload document image
+    </p>
+    <p class="text-xs text-gray-400">
+      PNG, JPG (Max 5MB)
+    </p>
+  </div>
+
+  <img id="preview" class="hidden h-full w-full object-contain rounded-2xl" />
+
+</label>
+
+
+
                             </div>
 
                             <button class="w-full h-16 bg-emerald-400 text-md text-white rounded-xl">Upload Docuemts</button>

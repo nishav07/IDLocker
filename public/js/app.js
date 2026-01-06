@@ -181,5 +181,37 @@ navItems.forEach(item => {
 function createFx(e) {
   const btn = e.target.closest(`[data-page="create"]`);
    if (!btn) return;
-   console.log('delete btn clickedddddddddddd');
+   const main = document.querySelector("main");
+   const input = main.querySelector("#image");
+const loader = main.querySelector("#loader");
+const preview = main.querySelector("#preview");
+const placeholder = main.querySelector("#placeholder");
+
+document.addEventListener("change", (e) => {
+  if (e.target.id !== "image") return;
+
+  const input = e.target;
+  const main = document.querySelector("main");
+
+  const loader = main.querySelector("#loader");
+  const preview = main.querySelector("#preview");
+  const placeholder = main.querySelector("#placeholder");
+
+  const file = input.files[0];
+  if (!file) return;
+
+  placeholder.classList.add("hidden");
+  loader.classList.remove("hidden");
+
+  setTimeout(() => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      preview.src = reader.result;
+      loader.classList.add("hidden");
+      preview.classList.remove("hidden");
+    };
+    reader.readAsDataURL(file);
+  }, 800);
+});
+   
 }
