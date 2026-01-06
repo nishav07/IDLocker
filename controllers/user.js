@@ -17,9 +17,14 @@ function dashboard(req,res){
 async function components(req,res){
     const page = req.params.page;
     const userID = req.session.user.id;
+    const user = await User.findById(userID)
+    console.log("user ka dataaaaaaaaaaaa",user)
     const doc = await docs.find({userID:userID});
     // console.log(doc);
-    res.render(`components/${page}`,{data:doc})
+    res.render(`components/${page}`,{
+      data:doc,
+      user:user
+    })
 }
 
 async function create(req,res){

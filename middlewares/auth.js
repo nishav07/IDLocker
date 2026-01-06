@@ -37,10 +37,20 @@ async function user(req,res,next){
 }
 
 
+
+async function renew(req,res,next){
+    if (req.session) {
+    req.session.touch();
+  }
+  next();
+}
+
+
 module.exports = {
     flash,
     hashing,
     verify,
     isLoggedIn,
-    user
+    user,
+    renew
 }

@@ -27,6 +27,7 @@ const middleware = require("./middlewares/auth.js")
 const Route = require("./routes/router.js");
 app.use(middleware.user);
 app.use(middleware.flash);
+app.use(middleware.renew);
 
 app.use("/",Route);
 

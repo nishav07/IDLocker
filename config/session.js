@@ -10,7 +10,8 @@ const sessionConfig = session(
   
   store: MongoStore.create({
     mongoUrl:process.env.MONGO_URL,
-    collection:"sessions"
+    collection:"sessions",
+    ttl: 60 * 60 * 24 * 30
   }),
 
   cookie: { 
