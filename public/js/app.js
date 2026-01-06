@@ -110,6 +110,15 @@ function showToast(message, type = "success", time = 2500) {
 
     msg.innerText = message;
 
+    toast.classList.remove(
+    "hidden",
+    "opacity-0",
+    "opacity-100",
+    "-translate-y-20",
+    "-translate-y-1/2",
+    "-translate-y-1/3"
+  );
+
     toast.className = toast.className.replace(/bg-\S+/g, "");
     toast.classList.add(type === "success" ? "bg-green-600" : "bg-red-600");
 
