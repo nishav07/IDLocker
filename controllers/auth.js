@@ -12,11 +12,11 @@ async function signup (req,res){
    try {
     const {userName,password,email} = req.body;
 
-    console.log("signup wala data:",{
-        userName,
-        password,
-        email
-    })
+    // console.log("signup wala data:",{
+    //     userName,
+    //     password,
+    //     email
+    // })
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -41,10 +41,10 @@ async function signup (req,res){
 
 async function login (req,res){
     const {email,password} = req.body;
-    console.log("login wala data:",{
-        email,
-        password
-    })
+    // console.log("login wala data:",{
+    //     email,
+    //     password
+    // })
 
      const users = await User.findOne({email:email});
 
@@ -55,11 +55,11 @@ async function login (req,res){
      }
 
    
-    console.log("login wala data",users);
+    // console.log("login wala data",users);
     const hashPass = users.password;
     const isTrue = await middleware.verify(password,hashPass);
 
-    console.log(`data of pass`,hashPass,isTrue,);
+    // console.log(`data of pass`,hashPass,isTrue,);
 
     if(users && isTrue){
         req.session.user = {
@@ -80,7 +80,7 @@ async function login (req,res){
 async function logout(req,res){
     try {
     const userid = req.session.user.id;
-    console.log("logout wala userID",userid);
+    // console.log("logout wala userID",userid);
     req.flash("success","logged out succefully");
     req.session.destroy(() => {
     res.clearCookie("sid"); // ya connect.sid

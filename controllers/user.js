@@ -18,7 +18,7 @@ async function components(req,res){
     const page = req.params.page;
     const userID = req.session.user.id;
     const user = await User.findById(userID)
-    console.log("user ka dataaaaaaaaaaaa",user)
+    // console.log("user ka dataaaaaaaaaaaa",user)
     const doc = await docs.find({userID:userID});
     // console.log(doc);
     res.render(`components/${page}`,{
@@ -61,7 +61,7 @@ async function create(req,res){
     } catch (err) {
       req.flash("error",`${name} not Uploded`)
       console.log(err);
-      res.redirect("/")
+      res.redirect("/dashboard")
     }
 
     // res.send("okay hai jeeeeee")
@@ -98,10 +98,26 @@ if (!doc) {
 
 }
 
+async function edit(req,res){
+try {
+  const {newEmail} = req.body;
+  const userID = req.session.user.id;
+  console.log("new email",newEmail,userID);
+  await User.findByIdAndUpdate(userID,{email:newEmail});
+  req.flash("success",`email has changed successfully`);
+  res.redirect("/dashboard");
+} catch (error) {
+  req.flash("error",`email not changed`);
+  console.log(err);
+  res.redirect("/dashboard");
+}
+}
+
 module.exports = {
     index,
     dashboard,
     components,
     create,
-    drop
+    drop,
+    edit
 }
