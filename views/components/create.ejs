@@ -1,4 +1,4 @@
- <div id="create-section" class="py-4">
+ <div id="create-section" class="py-4 overflow-y-scroll">
                     <div id="create-container" class="px-4 w-full">
                         <form action="/upload" method="post" enctype="multipart/form-data" class="flex flex-col gap-4">
                             <div>
@@ -29,7 +29,7 @@
   for="image"
   id="uploadBox"
   class="mt-2 flex flex-col items-center justify-center
-         h-80 md:h-80 w-full cursor-pointer
+         h-66 md:h-80 w-full cursor-pointer  
          rounded-2xl border-2 border-dashed border-gray-400
          bg-gray-50 hover:bg-gray-100
          transition-all relative"
@@ -62,8 +62,10 @@
 
                             </div>
 
-                            <button class="w-full h-16 bg-emerald-400 text-md text-white rounded-xl">Upload Docuemts</button>
+                            <button class="w-full h-16 bg-emerald-400 text-md text-white rounded-xl" data-upload-docs>Upload Docuemts</button>
                             
                         </form>
                     </div>
+
+                    
                 </div>

@@ -4,8 +4,20 @@ document.addEventListener("click", (e) => {
   if(e.target.closest("[delete-btn]")) delbtn(e);
 
   if(e.target.closest(`[data-page="create"]`)) createFx(e);
+
+  if(e.target.closest("[data-upload-docs]")) uploadbtn(e);
 });
 
+
+function uploadbtn(e){
+  const btn = e.target.closest("[data-upload-docs]");
+    if (!btn) return;
+    console.log("upload btn clickedddd")
+    showLoader();
+    setTimeout(() => {
+      hideLoader();
+    },2000);
+}
 
 
 document.querySelectorAll("a[data-page]").forEach(link => {
