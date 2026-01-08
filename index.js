@@ -34,3 +34,7 @@ app.use("/",Route);
 app.listen(port,() => {
     console.log(`app listned at port ${port}`);
 })
+
+app.use((req, res) => {
+  res.status(404).render("404");
+});
