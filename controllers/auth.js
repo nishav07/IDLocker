@@ -24,6 +24,7 @@ async function signup (req,res){
      res.redirect("/signup");
      return
     }
+    
 
     const hashPass = await middleware.hashing(password);
     
@@ -31,9 +32,11 @@ async function signup (req,res){
     await user.save();
 
 
+
     req.session.user = {
         id:user._id
     }
+
     
     res.redirect('/dashboard');
    } catch (error) {
