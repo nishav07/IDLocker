@@ -20,7 +20,9 @@ async function signup (req,res){
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-    return res.redirect("/signup");
+        req.flash("error","user not found")
+     res.redirect("/signup");
+     return
     }
 
     const hashPass = await middleware.hashing(password);
@@ -32,7 +34,7 @@ async function signup (req,res){
     req.session.user = {
         id:user._id
     }
-
+    
     res.redirect('/dashboard');
    } catch (error) {
     console.log(error);
