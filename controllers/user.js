@@ -114,12 +114,12 @@ try {
 }
 
 async function docEdit(req,res){
-  const {docName,docId} = req.body;
+  const {docsName,docsId} = req.body;
   console.log("edit waal data",{
-    docName,docId
+    docsName,docsId
   })
 
-  res.send("okayy hai jiii")
+  res.sendStatus(200);
 }
 
 module.exports = {
