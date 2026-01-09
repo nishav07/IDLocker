@@ -8,15 +8,28 @@ document.addEventListener("click", (e) => {
   if(e.target.closest("[data-upload-docs]")) uploadbtn(e);
 
   if(e.target.closest("[update-btn]")) updatebtn(e);
+
+  if(e.target.closest("[data-update-docs")) update(e);
 });
 
+const currPostId = null;
 function updatebtn(e){
   const btn = e.target.closest("[update-btn]");
   if (!btn) return;
   const page = btn.dataset.page;
-  console.log("update btn clickedddddd",page);
+  const id = btn.dataset.id;
+  currPostId = id;
+  console.log("update btn clickedddddd",page,id);
   loadPage(page);
 }
+
+async function update(e){
+   const btn = e.target.closest("[data-update-docs]");
+    if (!btn) return;
+    const id = currPostId;
+    console.log("updte btn clickedd",id)
+}
+
 
 function uploadbtn(e){
   const btn = e.target.closest("[data-upload-docs]");
@@ -27,6 +40,7 @@ function uploadbtn(e){
       hideLoader();
     },2000);
 }
+
 
 
 document.querySelectorAll("a[data-page]").forEach(link => {
