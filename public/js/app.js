@@ -6,8 +6,15 @@ document.addEventListener("click", (e) => {
   if(e.target.closest(`[data-page="create"]`)) createFx(e);
 
   if(e.target.closest("[data-upload-docs]")) uploadbtn(e);
+
+  if(e.target.closest("[doc-update-btn]")) updatebtn(e);
 });
 
+function updatebtn(e){
+  const btn = e.target.closest("[doc-edit-btn]");
+  if (!btn) return;
+  console.log("update btn clickedddddd");
+}
 
 function uploadbtn(e){
   const btn = e.target.closest("[data-upload-docs]");
