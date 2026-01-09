@@ -17,6 +17,7 @@ router.post("/logout",isLoggedIn,callBack2.logout);
 router.post("/upload",isLoggedIn,upload.single("document"),callBack.create);
 router.delete("/delete",isLoggedIn,callBack.drop);
 router.post("/edit",isLoggedIn,callBack.edit);
+router.post("/update",isLoggedIn,callBack.docEdit);
 
 
 module.exports = router;

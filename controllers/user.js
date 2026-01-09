@@ -113,11 +113,19 @@ try {
 }
 }
 
+async function docEdit(req,res){
+  const {docName,docId} = req.body;
+  console.log("edit waal data",{
+    docName,docId
+  })
+}
+
 module.exports = {
     index,
     dashboard,
     components,
     create,
     drop,
-    edit
+    edit,
+    docEdit
 }
