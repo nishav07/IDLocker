@@ -7,13 +7,15 @@ document.addEventListener("click", (e) => {
 
   if(e.target.closest("[data-upload-docs]")) uploadbtn(e);
 
-  if(e.target.closest("[doc-update-btn]")) updatebtn(e);
+  if(e.target.closest("[update-btn]")) updatebtn(e);
 });
 
 function updatebtn(e){
-  const btn = e.target.closest("[doc-edit-btn]");
+  const btn = e.target.closest("[update-btn]");
   if (!btn) return;
-  console.log("update btn clickedddddd");
+  const page = btn.dataset.page;
+  console.log("update btn clickedddddd",page);
+  loadPage(page);
 }
 
 function uploadbtn(e){

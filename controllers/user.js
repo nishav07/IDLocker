@@ -118,6 +118,8 @@ async function docEdit(req,res){
   console.log("edit waal data",{
     docName,docId
   })
+
+  res.send("okayy hai jiii")
 }
 
 module.exports = {
