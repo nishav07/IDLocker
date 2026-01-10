@@ -18,9 +18,9 @@ async function components(req,res){
     const page = req.params.page;
     const userID = req.session.user.id;
     const user = await User.findById(userID)
-    // console.log("user ka dataaaaaaaaaaaa",user)
+  
     const doc = await docs.find({userID:userID});
-    // console.log(doc);
+  
     res.render(`components/${page}`,{
       data:doc,
       user:user
@@ -31,21 +31,17 @@ async function create(req,res){
 
     const {name,docsID} = req.body;
     const userID = req.session.user.id;
-    // console.log("docs ka data", {
-    //     name,
-    //     docsID,
-    //     userID
-    // })
+ 
 
      try {
-      // cloudinary upload
+    
       const result = await cloudinary.uploader.upload(req.file.path, {
         folder: "IDLocker"
       });
 
-      // save in mongo
+    
       const doc = await docs.create({
-        userID: userID,   // assume user logged in
+        userID: userID,   
         docsID: docsID,
         name: name,
         imgPath:result.secure_url,
@@ -64,8 +60,6 @@ async function create(req,res){
       res.redirect("/dashboard")
     }
 
-    // res.send("okay hai jeeeeee")
-
    
 }
 
@@ -79,8 +73,6 @@ try {
 
  const publicId = doc.publicId;
 
- console.log("wtffffff",postID,publicId);
-
 if (!doc) {
   return res.sendStatus(403);
 }
@@ -89,7 +81,7 @@ if (!doc) {
   await cloudinary.uploader.destroy(publicId);
   await Docs.findByIdAndDelete(postID);
 
-  console.log("yaha tak kak pipeline clearrr")
+  console.log("yaha tak ka pipeline clearrr")
   res.sendStatus(200)
 } catch (error) {
   res.sendStatus(400)
@@ -102,7 +94,6 @@ async function edit(req,res){
 try {
   const {newEmail} = req.body;
   const userID = req.session.user.id;
-  console.log("new email",newEmail,userID);
   await User.findByIdAndUpdate(userID,{email:newEmail});
   req.flash("success",`email has changed successfully`);
   res.redirect("/dashboard");
@@ -115,9 +106,13 @@ try {
 
 async function docEdit(req,res){
   try {
-    
+    const {docsName,docsId,id} = req.body;
+
+    const doc = await Docs.findByIdAndUpdate(id,{docsID:docsId,name:docsName})
+    res.sendStatus(200);
   } catch (error) {
-    
+    console.log(error);
+    res.sendStatus(500);
   }
 }
 
