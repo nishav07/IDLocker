@@ -41,6 +41,7 @@ async function update(e){
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ docsName,docsId })
+      
     });
 }
 
