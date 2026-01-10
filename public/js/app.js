@@ -39,14 +39,14 @@ async function update(e){
      const res =  await fetch("/update", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ docsName,docsId })
+      body: JSON.stringify({ docsName,docsId,id })
     });
 
     showLoader();
 
     if(res.status === 200){
       hideLoader();
-      showToast("success","document updated",500)
+      showToast("document updated","success",500)
       setTimeout(() => {
         
         window.location.href = "Dashboard";

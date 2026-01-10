@@ -114,12 +114,11 @@ try {
 }
 
 async function docEdit(req,res){
-  const {docsName,docsId} = req.body;
-  console.log("edit waal data",{
-    docsName,docsId
-  })
-
-  res.sendStatus(200);
+  try {
+    
+  } catch (error) {
+    
+  }
 }
 
 module.exports = {
