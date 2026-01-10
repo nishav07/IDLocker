@@ -16,8 +16,7 @@ let currPostId = null;
 
 function updatebtn(e){
   const btn = e.target.closest("[update-btn]");
-  if (!btn) return;
-  // const fd = new FormData(form);
+  if (!btn) return;;
 
   const page = btn.dataset.page;
   const id = btn.dataset.id;
@@ -41,8 +40,18 @@ async function update(e){
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ docsName,docsId })
-      
     });
+
+    showLoader();
+
+    if(res.status === 200){
+      hideLoader();
+      showToast("success","document updated",500)
+      setTimeout(() => {
+        
+        window.location.href = "Dashboard";
+      },500);
+    }
 }
 
 
