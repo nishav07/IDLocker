@@ -21,8 +21,6 @@ function updatebtn(e){
   const page = btn.dataset.page;
   const id = btn.dataset.id;
   currPostId = id;
-
-  console.log("update btn clickedddddd",page,id,);
   loadPage(page);
 }
 
@@ -34,7 +32,6 @@ async function update(e){
     const id = currPostId;
     const docsName = fd.get("docsName");
     const docsId = fd.get("docsID");
-    console.log("updte btn clickedd",id,docsName,docsId)
 
      const res =  await fetch("/update", {
       method: "PATCH",
@@ -58,7 +55,6 @@ async function update(e){
 function uploadbtn(e){
   const btn = e.target.closest("[data-upload-docs]");
     if (!btn) return;
-    console.log("upload btn clickedddd")
     showLoader();
     setTimeout(() => {
       hideLoader();
