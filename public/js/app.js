@@ -118,28 +118,24 @@ flash();
 function copybtn (e) {
    const btn = e.target.closest("i[copyBtn]");
     if (!btn) return;
-    console.log("copy btn clikedddddd");
     const p = btn.closest("p");
     const docID = p.querySelector('[document-id]').innerText;
-    console.log(docID);
 
      navigator.clipboard.writeText(docID)
       .then(() => {
-        showToast("text copied :)")
+        showToast("text copied :)");
       })
       .catch(err => {
-        console.error("Failed to copy text: ", err);
+        showToast("text not copied :(");
       });
 }
 
 async function delbtn (e) {
   const btn = e.target.closest("[delete-btn]");
     if (!btn) return;
-    console.log("delete-btn-clicked")
    const postID = btn.dataset.id;
    const publicId = btn.dataset.publicId;
 
-   console.log(postID,publicId);
    showLoader();
 
 
@@ -158,6 +154,7 @@ async function delbtn (e) {
      },1000);
   } catch (error) {
     console.log("error aa gya yaar",error);
+    showToast("post not deleted")
   }
 }
 
