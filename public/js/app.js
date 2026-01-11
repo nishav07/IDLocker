@@ -126,7 +126,7 @@ function copybtn (e) {
         showToast("text copied :)");
       })
       .catch(err => {
-        showToast("text not copied :(");
+        showToast("text not copied :(","error",2500);
       });
 }
 
@@ -154,11 +154,11 @@ async function delbtn (e) {
      },1000);
   } catch (error) {
     console.log("error aa gya yaar",error);
-    showToast("post not deleted")
+    showToast("post not deleted","error",1000)
   }
 }
 
-function showToast(message, type = "success", time = 2500) {
+function showToast(message, type = "success", time = 2000) {
     const toast = document.getElementById("toast");
     const msg = document.getElementById("toast-msg");
 
@@ -236,9 +236,9 @@ function createFx(e) {
    if (!btn) return;
    const main = document.querySelector("main");
    const input = main.querySelector("#image");
-const loader = main.querySelector("#loader");
-const preview = main.querySelector("#preview");
-const placeholder = main.querySelector("#placeholder");
+  const loader = main.querySelector("#loader");
+  const preview = main.querySelector("#preview");
+  const placeholder = main.querySelector("#placeholder");
 
 document.addEventListener("change", (e) => {
   if (e.target.id !== "image") return;
