@@ -5,7 +5,7 @@
             <p class="text-xl px-4 py-4">Username: <span class="text-2xl font-medium"><%= user.userName %></span></p>
         </div>
 
-        <div id="email" class="h-20  flex items-center bg-emerald-100 px-4 rounded-xl">
+        <div id="email" class="h-20 flex items-center bg-emerald-100 px-4 rounded-xl">
              <form action="/edit" method="post" class="flex items-center justify-between">
             <input class="h-12 w-64 py-2 text-xl outline-none border-b-2 border-gray-400" type="text" name="newEmail" value="<%= user.email %>" editable>
             <button  class="h-10 bg-emerald-300 px-4 py-2 rounded-xl text-xl">edit</button>

@@ -6,6 +6,20 @@ const cloudinary = require("../config/cloudinary.js");
 const fs = require("fs");
 const Docs = require('../models/document.js');
 
+const streamUpload = (buffer) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload_stream(
+      { folder: "IDLocker" },
+      (error, result) => {
+        if (error) reject(error);
+        else resolve(result);
+      }
+    ).end(buffer);
+  });
+};
+
+
+
 function index (req,res){
     res.render("index.ejs")
 }
@@ -35,9 +49,8 @@ async function create(req,res){
 
      try {
     
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "IDLocker"
-      });
+     const result = await streamUpload(req.file.buffer);
+
 
     
       const doc = await docs.create({
@@ -49,7 +62,6 @@ async function create(req,res){
 
       });
 
-       fs.unlinkSync(req.file.path);
 
        req.flash("success",`${name} Uploded`)
       res.redirect("/dashboard")

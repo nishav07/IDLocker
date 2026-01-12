@@ -20,8 +20,8 @@ async function signup (req,res){
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-        req.flash("error","user not found")
-     res.redirect("/signup");
+     req.flash("error","User with same details found");
+     res.redirect("/");
      return
     }
     
