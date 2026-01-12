@@ -46,7 +46,7 @@ async function update(e){
       showToast("document updated","success",500)
       setTimeout(() => {
         
-        window.location.href = "Dashboard";
+        window.location.href = "/dashboard";
       },500);
     }
 }
@@ -150,7 +150,7 @@ async function delbtn (e) {
       hideLoader();
      showToast("Document deleted","success",1000);
      setTimeout(() => {
-      window.location.href = "Dashboard";
+      window.location.href = "/dashboard";
      },1000);
   } catch (error) {
     console.log("error aa gya yaar",error);
