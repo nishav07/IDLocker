@@ -37,7 +37,7 @@ async function signup (req,res){
         id:user._id
     }
 
-    
+    req.flash("success","signuped & auto loggged in")
     res.redirect('/dashboard');
    } catch (error) {
     console.log(error);
@@ -54,7 +54,7 @@ async function login (req,res){
      const users = await User.findOne({email:email});
 
      if(!users){
-        req.flash("error","user not found")
+        req.flash("error","404 user not found")
         res.redirect("/");
         return
      }
@@ -74,7 +74,7 @@ async function login (req,res){
        res.redirect("/dashboard");
        return
     } else {
-         req.flash("error","passowrd worng haii")
+         req.flash("error","password galat hai sir")
        res.redirect("/");
        return
     }
@@ -88,7 +88,7 @@ async function logout(req,res){
     // console.log("logout wala userID",userid);
     req.flash("success","logged out succefully");
     req.session.destroy(() => {
-    res.clearCookie("sid"); // ya connect.sid
+    res.clearCookie("sid"); 
     res.redirect("/");
     });
     } catch (error) {
