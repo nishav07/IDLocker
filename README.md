@@ -53,3 +53,44 @@ IDLocker/
 ├── init.js # Initial setup / DB init
 ├── package.json
 └── README.md
+
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+-- bash git clone https://github.com/nishav07/IDLocker.git
+-- cd IDLocker
+
+-- npm install
+
+-- npm start
+
+-- http://localhost:3000
+
+### Enviroment Variables
+
+-- PORT=3000
+-- MONGO_URI=your_mongodb_connection_string
+-- SESSION_SECRET=your_secret_key
+
+##  Status
+
+-- Completed with core features
+
+## Devloper
+
+-- Nishav Chaudhary
+
+## Deployed on render
+
+-- https://idlocker.onrender.com/
+
+## Support
+
+-- https://idlocker.onrender.com/
+
+
